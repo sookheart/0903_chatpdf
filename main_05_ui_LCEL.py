@@ -26,6 +26,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from operator import itemgetter
+import tempfile
 
 # =========================
 # 페이지 기본 UI
@@ -191,4 +192,5 @@ if st.button("질문하기"):
 # with st.expander("디버그 정보"):
 #     st.write("persist_dir:", st.session_state.persist_dir)
 #     st.write("vectorstore 생성됨:", st.session_state.vectorstore is not None)
+
 
