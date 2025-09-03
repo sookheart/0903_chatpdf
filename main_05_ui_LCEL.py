@@ -13,9 +13,9 @@ import time
 import shutil
 import tempfile
 import streamlit as st
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()  # .env에서 OPENAI_API_KEY 로드
+#load_dotenv()  # .env에서 OPENAI_API_KEY 로드
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -191,3 +191,4 @@ if st.button("질문하기"):
 # with st.expander("디버그 정보"):
 #     st.write("persist_dir:", st.session_state.persist_dir)
 #     st.write("vectorstore 생성됨:", st.session_state.vectorstore is not None)
+
