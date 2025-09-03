@@ -4,22 +4,24 @@
 # - PDF 업로드 → 메모리에만 저장 (디스크 저장 없음)
 # - 질문 입력 → 답변 출력
 # -----------------------------------------------------------
-
-import os
-import tempfile
-import time
-import shutil
-import streamlit as st
-
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma  # ✅ Chroma 사용
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-
+from langchain_chroma import Chroma  
+from langchain_openai import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
+from langchain.retrievers.multi_query import MultiQueryRetriever
+from langchain.chains import RetrievalQA
+import os
+import streamlit as st
+import tempfile
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from operator import itemgetter
+import time
+import shutil
 
 # =========================
 # Streamlit 기본 UI 구성
